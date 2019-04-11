@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>Home - API</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .container {
+            background-color: white;
+            height: 100vh;
+        }
+
+        body {
+            background-image: url("img/bg.jpg");
+            background-size: cover;
+        }
+
+        #barra-nav {
+            background-image: url("img/cabelo.png");
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav id="barra-nav" class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand text-white" href="#">Tifs API v2.0</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="index.html">Endpoints<span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="modelos.html">Modelos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-light">
+                <li class="breadcrumb-item"><a href="#">Tifs API V2.0</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Modelos</li>
+            </ol>
+        </nav>
+
+
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-cab" role="tab"
+                    aria-controls="nav-home" aria-selected="true">Cabeleireiro</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-cli" role="tab"
+                    aria-controls="nav-profile" aria-selected="false">Cliente</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-pro" role="tab"
+                    aria-controls="nav-contact" aria-selected="false">Produto</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-ser" role="tab"
+                    aria-controls="nav-contact" aria-selected="false">Serviço</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-cab" role="tabpanel" aria-labelledby="nav-home-tab">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Campo</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Único</th>
+                            <th scope="col">Obrigatório</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nome</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>CNPJ</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Não</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Telefone</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Não</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Nascimento</td>
+                            <td>Date</td>
+                            <td>Não</td>
+                            <td>Não</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="nav-cli" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Campo</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Único</th>
+                            <th scope="col">Obrigatório</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nome</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>CPF</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Não</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Telefone</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Não</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Nascimento</td>
+                            <td>Date</td>
+                            <td>Não</td>
+                            <td>Não</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Alergias</td>
+                            <td>Boolean</td>
+                            <td>Não</td>
+                            <td>Não</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sexo</td>
+                            <td>String</td>
+                            <td>Não</td>
+                            <td>Não</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="nav-pro" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Campo</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Único</th>
+                            <th scope="col">Obrigatório</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nome</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Marca</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Linha</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="nav-ser" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Campo</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Único</th>
+                            <th scope="col">Obrigatório</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nome</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Data</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Não</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Anotações</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Não</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Cliente</td>
+                            <td>String</td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Produtos</td>
+                            <td>[Produto]</td>
+                            <td>Sim</td>
+                            <td>Sim</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer class="page-footer font-small blue">
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                <a href="#"> TifsAPI V2.0</a>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

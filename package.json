@@ -1,0 +1,23 @@
+{
+  "name": "restful-tifs",
+  "version": "1.0.0",
+  "description": "Api restful para a aplicação do Tifs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon config/server.js"
+  },
+  "author": "Lucas Laborne",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.0",
+    "mongoose-unique-validator": "^2.0.2",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "nodemon": "^1.18.11"
+  }
+}

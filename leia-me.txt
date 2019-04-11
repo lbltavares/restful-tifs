@@ -1,0 +1,13 @@
+
+Metodo      Endpoint                            Descrição
+
+GET         /cabeleireiros                      Listar cabeleireiros
+GET         /clientes                           Listar clientes
+GET         /servicos?cabeleireiro=pricila      Listar serviços de um cabeleireiro
+GET         /produtos/{servico}                 Listar produtos de um serviços
+GET         /servicos                           Listar os serviços disponíveis
+POST        /servicos                           Cadastrar Serviço
+
+
+
+

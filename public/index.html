@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>Home - API</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .container {
+            background-color: white;
+            height: 100vh;
+        }
+
+        body {
+            background-image: url("img/bg.jpg");
+            background-size: cover;
+        }
+
+        #barra-nav {
+            background-image: url("img/cabelo.png");
+            height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav id="barra-nav" class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand text-white" href="#">Tifs API v2.0</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="#">Endpoints<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="modelos.html">Modelos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-light">
+                <li class="breadcrumb-item"><a href="#">Tifs API V2.0</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Endpoints</li>
+            </ol>
+        </nav>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-get-tab" data-toggle="tab" href="#nav-get" role="tab"
+                    aria-controls="nav-get" aria-selected="true">GET</a>
+                <a class="nav-item nav-link" id="nav-post-tab" data-toggle="tab" href="#nav-post" role="tab"
+                    aria-controls="nav-post" aria-selected="false">POST</a>
+                <a class="nav-item nav-link" id="nav-put-tab" data-toggle="tab" href="#nav-put" role="tab"
+                    aria-controls="nav-put" aria-selected="false">PUT</a>
+                <a class="nav-item nav-link" id="nav-delete-tab" data-toggle="tab" href="#nav-delete" role="tab"
+                    aria-controls="nav-delete" aria-selected="false">DELETE</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-get" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Caminho</th>
+                                    <th scope="col">Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>/cabeleireiros</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/clientes</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/produtos</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/servicos</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <b>Como usar:</b>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Utilize o método GET para obter um ou mais registros, filtrados
+                                    pela URL.
+                                </p>
+                                <p class="card-text"><b>Exemplos:</b></p>
+                                <p class="card-text">GET /produtos (obtém uma lista com todos os produtos)</p>
+                                <p class="card-text">GET /produtos?marca=loreal (obtém uma lista de produtos da marca
+                                    Loreal)
+                                </p>
+                                <p class="card-text">GET /produtos?nome=shampoo&marca=loreal (obtém uma lista de
+                                    shampoos da
+                                    marca loreal)</p>
+                                <p class="card-text">GET /produtos?_id=123123123 (obtém o produto com id=123123123)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-post" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Caminho</th>
+                                    <th scope="col">Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>/cabeleireiros</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/clientes</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/produtos</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/servicos</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <b>Como usar:</b>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Utilize o método POST para adicionar um registro.</p>
+                                <p class="card-text"><b>Corpo da requisição:</b></p>
+                                <p class="card-text">Envie o corpo da requisição POST como um objeto JSON, contendo pelo
+                                    menos os itens obrigatórios do objeto (consulte os <a
+                                        href="modelos.html">Modelos</a>).</p>
+                                <p class="card-text"><b>Resposta:</b></p>
+                                <p class="card-text">Se o registro for adicionado com sucesso, a resposta será o próprio
+                                    registro adicionado, mais o ID (campo _id) gerado pelo banco. Caso contrário, a
+                                    resposta será um objeto contendo um erro.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="tab-pane fade" id="nav-put" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Caminho</th>
+                                    <th scope="col">Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>/cabeleireiros</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/clientes</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/produtos</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/servicos</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="tab-pane fade" id="nav-delete" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Caminho</th>
+                                    <th scope="col">Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>/cabeleireiros</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/clientes</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/produtos</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>/servicos</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer font-small blue">
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                <a href="#"> TifsAPI V2.0</a>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
