@@ -1,5 +1,6 @@
 const express = require('express');
 const Cliente = require('./cliente.modelo');
+const fake = require('../fake');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -7,6 +8,15 @@ router.get('/', (req, res, next) => {
         .exec()
         .then(result => { res.status(200).json(result); })
         .catch(err => { res.status(500).json(err); });
+});
+
+router.get('/criar/:num', (req, res, next) => {
+    let num = req.params.num;
+    for(let i = 0; i < num; i++){
+        let c = new Cliente(fake.Cliente());
+        c.save();
+    }
+    res.status(200).json();
 });
 
 router.post('/', (req, res, next) => {
