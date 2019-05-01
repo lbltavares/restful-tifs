@@ -9,6 +9,17 @@ router.get('/', (req, res, next) => {
         .catch(err => { res.status(500).json(err); });
 });
 
+router.get('/categorias', (req, res, next) => {
+    res.status(200).json([
+        'Pó Descolorante',
+        'Oxidante',
+        'Coloração',
+        'Shampoo',
+        'Máscara',
+        'Condicionador',
+    ]);
+});
+
 router.post('/', (req, res, next) => {
     let c = new Produto(req.body);
     c.save()
