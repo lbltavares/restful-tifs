@@ -30,4 +30,15 @@ router.delete('/', (req, res, next) => {
         .catch(err => { res.status(500).json(err) });
 });
 
+router.get('/tipo_servico', (req, res, next) => {
+    res.status(200).json([
+        'Escova',
+        'Corte',
+        'Coloração',
+        'Selagem',
+        'Mechas',
+    ]);
+});
+
+
 module.exports = router;
