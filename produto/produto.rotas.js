@@ -34,8 +34,8 @@ router.put('/', (req, res, next) => {
         .catch(err => { res.status(500).json(err) });
 });
 
-router.delete('/', (req, res, next) => {
-    Produto.deleteOne({ _id: req.body._id })
+router.delete('/:id', (req, res, next) => {
+    Produto.deleteOne({ _id: req.params.id })
         .exec()
         .then(result => { res.status(200).json(result); })
         .catch(err => { res.status(500).json(err) });

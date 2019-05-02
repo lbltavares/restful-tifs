@@ -2,7 +2,7 @@ const http = require('http');
 const app = require('../app');
 const db = require('./db');
 
-const PORTA = process.env.PORTA || 3000;
+const PORTA = process.env.PORTA || 3001;
 
 console.log('[%s] Estabelecendo conexão com o banco de dados...', (new Date).toLocaleString());
 db.init(() => {
