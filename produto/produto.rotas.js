@@ -9,6 +9,13 @@ router.get('/', (req, res, next) => {
         .catch(err => { res.status(500).json(err); });
 });
 
+router.get('/:id', (req, res, next) => {
+    Produto.findOne({ _id: req.params.id })
+        .exec()
+        .then(result => { res.status(200).json(result); })
+        .catch(err => { res.status(500).json(err); });
+});
+
 router.get('/categorias', (req, res, next) => {
     res.status(200).json([
         'Pó Descolorante',

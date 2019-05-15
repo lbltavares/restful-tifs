@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-    Cabeleireiro.find({_id: req.params.id})
+    Cabeleireiro.findOne({_id: req.params.id})
         .exec()
         .then(result => { res.status(200).json(result); })
         .catch(err => { res.status(500).json(err); });

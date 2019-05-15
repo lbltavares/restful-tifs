@@ -12,7 +12,7 @@ const schema = new Schema({
     cnpj: { type: String, unique: true },
     dataNascimento: { type: Date },
     
-}, { strict: false });
+}, { strict: false });  
 
 schema.plugin(muv);
 
