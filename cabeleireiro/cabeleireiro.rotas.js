@@ -1,5 +1,6 @@
 const express = require('express');
 const Cabeleireiro = require('./cabeleireiro.modelo');
+const fake = require('../fake');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -7,6 +8,22 @@ router.get('/', (req, res, next) => {
         .exec()
         .then(result => { res.status(200).json(result); })
         .catch(err => { res.status(500).json(err); });
+});
+
+router.get('/:id', (req, res, next) => {
+    Cabeleireiro.find({_id: req.params.id})
+        .exec()
+        .then(result => { res.status(200).json(result); })
+        .catch(err => { res.status(500).json(err); });
+});
+
+router.get('/criar/:num', (req, res, next) => {
+    let num = req.params.num;
+    for(let i = 0; i < num; i++){
+        let c = new Cabeleireiro(fake.Cabeleireiro());
+        c.save();
+    }
+    res.status(200).json();
 });
 
 router.post('/', (req, res, next) => {
