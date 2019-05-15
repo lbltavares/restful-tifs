@@ -1,6 +1,7 @@
 const express = require('express');
 const Cabeleireiro = require('./cabeleireiro.modelo');
 const fake = require('../fake');
+const Auth = require('./authenticate');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -46,5 +47,8 @@ router.delete('/', (req, res, next) => {
         .then(result => { res.status(200).json(result); })
         .catch(err => { res.status(500).json(err) });
 });
+
+router.post ('/autenticar', Auth.authenticate);
+
 
 module.exports = router;
