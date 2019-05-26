@@ -7,8 +7,8 @@ module.exports = {
 
     authenticate: function(req, res, next) {
         auth.findOne({email:req.body.email}, function(err, info){
-            if (err) {
-                next(err);
+            if (err || !info) {
+                res.json({status:"error", message: "Usuário não existe", data:null});
             } else {
                 if(bcrypt.compareSync(req.body.senha, info.senha)) {
                     const token = jwt.sign({id: info._id}, config.TOKEN_SECRET, { expiresIn: '2h' });
