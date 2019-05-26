@@ -1,5 +1,6 @@
 const express = require('express');
 const Produto = require('./produto.modelo');
+const fake = require('../fake');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -14,6 +15,15 @@ router.get('/:id', (req, res, next) => {
         .exec()
         .then(result => { res.status(200).json(result); })
         .catch(err => { res.status(500).json(err); });
+});
+
+router.get('/criar/:n', (req, res, next) => {
+    for(let i = 0; i < req.params.n; i++) {
+        let c = new Produto(fake.Produto());
+        c.save()
+            .then(result => { res.status(200).json(result); })
+            .catch(err => { res.status(500).json(err) });
+    }
 });
 
 router.get('/categorias', (req, res, next) => {
