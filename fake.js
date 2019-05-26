@@ -55,7 +55,16 @@ module.exports = {
     },
 
     Produto: function () {
-        // Criar produto falso
+        let categoria = faker.commerce.productName();
+        let marca = faker.commerce.product();
+        let linha = faker.commerce.productName();
+        let descr = faker.commerce.productAdjective();
+        return {
+            categoria: categoria,
+            marca: marca,
+            linha: linha,
+            descricao: descr,
+        }
     },
 
     Serviço: function () {
