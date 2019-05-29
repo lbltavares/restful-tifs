@@ -2,7 +2,7 @@ const bodyparser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 const cabeleireiros = require('./cabeleireiro/cabeleireiro.rotas') ;
 const clientes = require('./cliente/cliente.rotas');
 const produtos = require('./produto/produto.rotas');
@@ -12,33 +12,33 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(express.static('./public'));
 
-app.set('secretKey', 'nodeRestApi'); // jwt secret token
+// app.set('secretKey', 'nodeRestApi'); // jwt secret token
 
-app.use(bodyParser.urlencoded({extended: false}));
+// app.use(bodyParser.urlencoded({extended: false}));
 
-app.get('/', function(req, res){
-    res.json({"tutorial" : "Build REST API with node.js"});
-    });
+// app.get('/', function(req, res){
+//     res.json({"tutorial" : "Build REST API with node.js"});
+//     });
 
-// public route
-app.use('/cabeleireiros', cabeleireiros);
+// // public route
+// app.use('/cabeleireiros', cabeleireiros);
 
-// private route
-app.use('/produtos', validateUser, produtos);
-app.use('/clientes', validateUser, clientes);
+// // private route
+// app.use('/produtos', validateUser, produtos);
+// app.use('/clientes', validateUser, clientes);
 
-function validateUser(req, res, next) {
-  jwt.verify(req.headers['x-access-token'], config.TOKEN_SECRET, function(err, decoded) {
-    if (err) {
-      res.json({status:"error", message: err.message, data:null});
-    }else{
-      // add user id to request
-      req.body.userId = decoded.id;
-      next();
-    }
-  });
+// function validateUser(req, res, next) {
+//   jwt.verify(req.headers['x-access-token'], config.TOKEN_SECRET, function(err, decoded) {
+//     if (err) {
+//       res.json({status:"error", message: err.message, data:null});
+//     }else{
+//       // add user id to request
+//       req.body.userId = decoded.id;
+//       next();
+//     }
+//   });
   
-}
+// }
 
 
 // Middlewares:
