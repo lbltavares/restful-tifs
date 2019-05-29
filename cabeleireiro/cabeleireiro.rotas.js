@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-    Cabeleireiro.findOne({_id: req.params.id})
+    Cabeleireiro.findOne({ _id: req.params.id })
         .exec()
         .then(result => { res.status(200).json(result); })
         .catch(err => { res.status(500).json(err); });
@@ -20,7 +20,7 @@ router.get('/:id', (req, res, next) => {
 
 router.get('/criar/:num', (req, res, next) => {
     let num = req.params.num;
-    for(let i = 0; i < num; i++){
+    for (let i = 0; i < num; i++) {
         let c = new Cabeleireiro(fake.Cabeleireiro());
         c.save();
     }
@@ -48,7 +48,7 @@ router.delete('/', (req, res, next) => {
         .catch(err => { res.status(500).json(err) });
 });
 
-router.post ('/autenticar', Auth.authenticate);
+router.post('/autenticar', Auth.authenticate);
 
 
 module.exports = router;
