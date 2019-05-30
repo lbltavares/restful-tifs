@@ -34,6 +34,7 @@ module.exports = {
             telefone: telefone,
             cnpj: cnpj,
             dataNascimento: dataNascimento,
+            senha: '123456',
         };
     },
 

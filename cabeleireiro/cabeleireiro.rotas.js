@@ -36,7 +36,6 @@ router.post('/', (req, res, next) => {
     if (!validador.validarCpf(c.cpf)) res.status(500).json({ msg: 'CPF invalido' });
     if (!validador.validarTelefone(c.telefone)) res.status(500).json({ msg: 'Telefone invalido' });
     if (!validador.validarEmail(c.email)) res.status(500).json({ msg: 'Email invalido' });
-
     c.save()
         .then(result => { res.status(200).json(result); })
         .catch(err => { res.status(500).json(err) });

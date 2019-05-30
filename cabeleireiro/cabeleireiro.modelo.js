@@ -23,7 +23,7 @@ schema.pre('save', function (next) {
     next();
 });
 
-
 schema.plugin(muv);
 
 module.exports = mongoose.model(NOME_MODELO, schema);
+
