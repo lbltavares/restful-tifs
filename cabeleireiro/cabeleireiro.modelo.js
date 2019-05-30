@@ -8,7 +8,6 @@ const NOME_MODELO = 'Cabeleireiro';
 
 const schema = new Schema({
     nome: { type: String, required: true },
-    sobrenome: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     telefone: { type: String, unique: true },
     cnpj: { type: String, unique: true },
