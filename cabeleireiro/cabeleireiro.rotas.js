@@ -30,11 +30,11 @@ router.get('/criar/:num', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     let c = new Cabeleireiro(req.body);
-    if (!validador.validarNome(c.nome)) res.status(500).json({ msg: 'Nome invalido' });
-    if (!validador.validarNome(c.sobrenome)) res.status(500).json({ msg: 'Sobrenome invalido' });
-    if (!validador.validarCnpj(c.cnpj)) res.status(500).json({ msg: 'CNPJ invalido' });
-    if (!validador.validarTelefone(c.telefone)) res.status(500).json({ msg: 'Telefone invalido' });
-    if (!validador.validarEmail(c.email)) res.status(500).json({ msg: 'Email invalido' });
+    // if (!validador.validarNome(c.nome)) res.status(500).json({ msg: 'Nome invalido' });
+    // if (!validador.validarNome(c.sobrenome)) res.status(500).json({ msg: 'Sobrenome invalido' });
+    // if (!validador.validarCnpj(c.cnpj)) res.status(500).json({ msg: 'CNPJ invalido' });
+    // if (!validador.validarTelefone(c.telefone)) res.status(500).json({ msg: 'Telefone invalido' });
+    // if (!validador.validarEmail(c.email)) res.status(500).json({ msg: 'Email invalido' });
     c.save()
         .then(result => { res.status(200).json(result); })
         .catch(err => { res.status(500).json(err) });
