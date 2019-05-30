@@ -23,21 +23,21 @@ app.get('/', function (req, res) {
 });
 
 // private route
-app.get('/clientes', withAuth, function (req, res) {
-    res.send("...");
-});
-
-app.post('/clientes', withAuth, function (req, res) {
-    res.send("...");
-});
-
-app.get('/produtos', withAuth, function (req, res) {
-    res.send("...");
-});
-
-app.post('/produtos', withAuth, function (req, res) {
-    res.send("...");
-});
+// app.get('/clientes', withAuth, function (req, res) {
+//     res.send("...");
+// });
+//
+// app.post('/clientes', withAuth, function (req, res) {
+//     res.send("...");
+// });
+//
+// app.get('/produtos', withAuth, function (req, res) {
+//     res.send("...");
+// });
+//
+// app.post('/produtos', withAuth, function (req, res) {
+//     res.send("...");
+// });
 
 
 // Middlewares:
