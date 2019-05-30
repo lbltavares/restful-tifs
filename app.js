@@ -5,20 +5,21 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const config = require('./config');
 const bodyParser = require('body-parser');
-const cookieParser = require ('cookie-parser');
+const cookieParser = require('cookie-parser');
 const withAuth = require('./config/middleware');
 
 const app = express();
 app.use(express.static('./public'));
 
-app.use (cookieParser ());
+app.use(cookieParser());
 
-app.set('secretKey', 'nodeRestApi'); // jwt secret token
+// jwt secret token
+app.set('secretKey', 'nodeRestApi');
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', function(req, res){
-    res.json({"tutorial" : "Build REST API with node.js"});
+app.get('/', function (req, res) {
+    res.json({ "tutorial": "Build REST API with node.js" });
 });
 
 // private route
@@ -53,7 +54,7 @@ app.use('/clientes', require('./cliente/cliente.rotas'));
 app.use('/produtos', require('./produto/produto.rotas'));
 app.use('/servicos', require('./serviço/serviço.rotas'));
 
-app.get('/checkToken', withAuth, function(req, res) {
+app.get('/checkToken', withAuth, function (req, res) {
     res.sendStatus(200);
 });
 
