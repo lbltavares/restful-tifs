@@ -2,43 +2,41 @@ const bodyparser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-// const jwt = require('jsonwebtoken');
-const cabeleireiros = require('./cabeleireiro/cabeleireiro.rotas') ;
-const clientes = require('./cliente/cliente.rotas');
-const produtos = require('./produto/produto.rotas');
+const jwt = require('jsonwebtoken');
 const config = require('./config');
 const bodyParser = require('body-parser');
+const cookieParser = require ('cookie-parser');
+const withAuth = require('./config/middleware');
 
 const app = express();
 app.use(express.static('./public'));
 
-// app.set('secretKey', 'nodeRestApi'); // jwt secret token
+app.use (cookieParser ());
 
-// app.use(bodyParser.urlencoded({extended: false}));
+app.set('secretKey', 'nodeRestApi'); // jwt secret token
 
-// app.get('/', function(req, res){
-//     res.json({"tutorial" : "Build REST API with node.js"});
-//     });
+app.use(bodyParser.urlencoded({extended: true}));
 
-// // public route
-// app.use('/cabeleireiros', cabeleireiros);
+app.get('/', function(req, res){
+    res.json({"tutorial" : "Build REST API with node.js"});
+});
 
-// // private route
-// app.use('/produtos', validateUser, produtos);
-// app.use('/clientes', validateUser, clientes);
+// private route
+app.get('/clientes', withAuth, function (req, res) {
+    res.send("...");
+});
 
-// function validateUser(req, res, next) {
-//   jwt.verify(req.headers['x-access-token'], config.TOKEN_SECRET, function(err, decoded) {
-//     if (err) {
-//       res.json({status:"error", message: err.message, data:null});
-//     }else{
-//       // add user id to request
-//       req.body.userId = decoded.id;
-//       next();
-//     }
-//   });
-  
-// }
+app.post('/clientes', withAuth, function (req, res) {
+    res.send("...");
+});
+
+app.get('/produtos', withAuth, function (req, res) {
+    res.send("...");
+});
+
+app.post('/produtos', withAuth, function (req, res) {
+    res.send("...");
+});
 
 
 // Middlewares:
@@ -54,6 +52,10 @@ app.use('/cabeleireiros', require('./cabeleireiro/cabeleireiro.rotas'));
 app.use('/clientes', require('./cliente/cliente.rotas'));
 app.use('/produtos', require('./produto/produto.rotas'));
 app.use('/servicos', require('./serviço/serviço.rotas'));
+
+app.get('/checkToken', withAuth, function(req, res) {
+    res.sendStatus(200);
+});
 
 // Tratamento de rotas inválidas:
 app.use((req, res, next) => {

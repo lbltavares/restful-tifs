@@ -4,23 +4,8 @@ const db = require('./db');
 const cliente = require('../cliente/cliente.rotas') ;
 const cabelereiros = require('../cabeleireiro/cabeleireiro.rotas');
 const config = require('../config');
+const jwt = require('jsonwebtoken');
 
-// public route
-app.use('/cabeleireiros', cabelereiros);
-// private route
-app.use('/clientes', validateUser, cliente);
-
-function validateUser(req, res, next) {
-    jwt.verify(req.headers['x-access-token'], config.TOKEN_SECRET, function (err, decoded) {
-        if (err) {
-            res.json({status: "error", message: err.message, data: null});
-        } else {
-            // add user id to request
-            req.body.userId = decoded.id;
-            next();
-        }
-    });
-}
 
 const PORTA = process.env.PORT || 3001;
 
