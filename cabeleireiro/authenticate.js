@@ -8,6 +8,7 @@ module.exports = {
     authenticate: function(req, res, next) {
         auth.findOne({email:req.body.email}, function(err, info){
             if (err || !info) {
+                console.log(err)
                 res.json({status:"error", message: "Usuário não existe", data:null});
             } else {
                 if(bcrypt.compareSync(req.body.senha, info.senha)) {

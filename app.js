@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 const config = require('./config');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const withAuth = require('./config/middleware');
 
 const app = express();
 app.use(express.static('./public'));
@@ -22,22 +21,38 @@ app.get('/', function (req, res) {
     res.json({ "tutorial": "Build REST API with node.js" });
 });
 
-// private route
-// app.get('/clientes', withAuth, function (req, res) {
-//     res.send("...");
-// });
-//
-// app.post('/clientes', withAuth, function (req, res) {
-//     res.send("...");
-// });
-//
-// app.get('/produtos', withAuth, function (req, res) {
-//     res.send("...");
-// });
-//
-// app.post('/produtos', withAuth, function (req, res) {
-//     res.send("...");
-// });
+
+var apiRoutes = express.Router(); 
+
+
+apiRoutes.use(function(req, res, next) {
+
+
+  var token = req.body.token || req.query.token || req.headers['x-access-token'];
+
+  if (token) {
+
+    jwt.verify(token, config.TOKEN_SECRET, function(err, decoded) {       if (err) {
+        return res.json({ success: false, message: 'Falha ao autenticar o token.' });       } else {
+
+        req.decoded = decoded;         next();
+      }
+    });
+
+  } else {
+
+    return res.status(403).send({ 
+        success: false, 
+        message: 'Token não fornecido' 
+    });
+
+  }
+});
+
+
+app.use('/clientes', apiRoutes);
+app.use('/servicos', apiRoutes);
+app.use('/produtos', apiRoutes);
 
 
 // Middlewares:
@@ -54,7 +69,7 @@ app.use('/clientes', require('./cliente/cliente.rotas'));
 app.use('/produtos', require('./produto/produto.rotas'));
 app.use('/servicos', require('./serviço/serviço.rotas'));
 
-app.get('/checkToken', withAuth, function (req, res) {
+app.get('/checkToken', apiRoutes, function (req, res) {
     res.sendStatus(200);
 });
 
