@@ -29,13 +29,14 @@ apiRoutes.use(function(req, res, next) {
 
 
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
-
   if (token) {
 
-    jwt.verify(token, config.TOKEN_SECRET, function(err, decoded) {       if (err) {
-        return res.json({ success: false, message: 'Falha ao autenticar o token.' });       } else {
-
-        req.decoded = decoded;         next();
+    jwt.verify(token, config.TOKEN_SECRET, function(err, decoded) {
+    if (err) {
+        return res.json({ success: false, message: 'Falha ao autenticar o token.' });
+    } else {
+        req.decoded = decoded;
+        next();
       }
     });
 

@@ -13,8 +13,9 @@ module.exports = {
                 if(bcrypt.compareSync(req.body.senha, info.senha)) {
                     const token = jwt.sign({id: info._id}, config.TOKEN_SECRET, { expiresIn: '2h' });
                     res.json({status:"success", message: "Usuário encontrado!", data:{user: info, token:token}});
+
                 }else{
-                    res.json({status:"error", message: "Email/Senha inválidos!", data:null});
+                    res.status(500).json({status:"error", message: "Email/Senha inválidos!", data:null});
                 }
             }
         });
